@@ -47,7 +47,7 @@ if(appData.moneyPerDay < 100){
 // 		let a = +prompt("Введите обязательную статью расходов в этом месяце", ''),
 // 			b = +prompt("Во сколько обойдется?", '');
 // 		i++;
-// 		if((typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)) != null && a != '' && b !='' && a.length < 50){
+// 		if((typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)gir) != null && a != '' && b !='' && a.length < 50){
 // 		appData.expenses[a]	= b;
 // 		}else{
 // 		i = i - 1;
@@ -67,3 +67,8 @@ if(appData.moneyPerDay < 100){
 // 		}
 // }
 // while (i < 2);
+
+//Есть три вида циклов:
+//1. while()
+//2. do...while()
+//3. for()
