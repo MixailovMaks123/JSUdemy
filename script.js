@@ -1,35 +1,74 @@
-'use string';
+'use strict';
 
-let menu = document.getElementsByClassName('menu')[0],
-    menuItem = document.getElementsByClassName('menu-item'),
-    menuItemOne = document.getElementsByTagName('Li')[0],
-    menuItemTwo = document.getElementsByTagName('Li')[1],
-    menuItemThree = document.getElementsByTagName('Li')[2],
-    menuItemFour = document.getElementsByTagName('Li')[3],
-    menuItemFive = document.createElement('Li'),
-    title = document.getElementById('title'),
-    advertising = document.getElementsByClassName('adv')[0],
-    promptFor = document.getElementById('prompt');
+let money = +prompt("Ваш бюджет на месяц?", ''),
+	time = +prompt('Введите дату в формате YYYY-MM-DD', '');
 
-menu.insertBefore(menuItem[2], menuItem[1]); 
-
-menuItemOne.textContent = 'Mac';
-menuItemTwo.textContent = 'iPad';
-menuItemThree.textContent = 'iphone';
-menuItemFour.textContent = 'Watch';
-
-menuItemFive.classList.add('menu-item');
-menuItemFive.textContent = "AirPods";
-menu.appendChild(menuItemFive);
-
-document.body.style.backgroundImage = "url('img/AppleBackground.jpg')";
-
-title.textContent = "Мы продаем только подлинную технику Apple";
-title.style.backgroundColor = 'black';
+let appData = {
+	budget: money,
+	expenses: {},
+	optionalExpenses: {},
+	income: [],
+	timeData: time,
+	savings: false
+};
 
 
-advertising.remove(); 
+for(let i=0; i<2; i++){
+	let a = +prompt("Введите обязательную статью расходов в этом месяце", ''),
+		b = +prompt("Во сколько обойдется?", '');
 
-let survey = prompt('Ваше отношение к технике Apple?','');
-promptFor.textContent = survey;
+	if((typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)) != null && a != '' && b !='' && a.length < 50){
+		
+		appData.expenses[a]	= b;
+	}else{
+		i = i - 1;
+	}
+	
+};
 
+appData.moneyPerDay = appDay.budget / 30;
+
+alert("Ежедневный бюджет: " + appData.moneyPerDay);
+
+if(appData.moneyPerDay < 100){
+	console.log('Минтмальный уровень достатка');
+}else if(appData.moneyPerDay > 100 && appData.moneyPerDay < 2000){
+	console.log('Средний уровень достатка');
+}else if(appData.moneyPerDay > 2000){
+	console.log('Высокий уровень достатка');
+}else{
+	console.log('Error');
+}
+
+
+// 1.
+// let i = 0;
+// while (i < 2) {
+// 		let a = +prompt("Введите обязательную статью расходов в этом месяце", ''),
+// 			b = +prompt("Во сколько обойдется?", '');
+// 		i++;
+// 		if((typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)gir) != null && a != '' && b !='' && a.length < 50){
+// 		appData.expenses[a]	= b;
+// 		}else{
+// 		i = i - 1;
+// 		}
+//}
+
+// 2.
+// let i = 0;
+// do {
+//      gilet a = +prompt("Введите обязательную статью расходов в этом месяце", ''),
+// 		   b = +prompt("Во сколько обойдется?", '');
+// 		i++;
+// 		if((typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)) != null && a != '' && b !='' && a.length < 50){
+// 		appData.expenses[a]	= b;
+// 		}else{
+// 		i = i - 1;
+// 		}
+// }
+// while (i < 2);
+
+//Есть три вида циклов:
+//1. while()
+//2. do...while()
+//3. for()
