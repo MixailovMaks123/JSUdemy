@@ -3,22 +3,22 @@
 const money = prompt("Ваш бюджет на месяц? ", "30000");
 const time = prompt("Введите дату в формате YYYY-MM-DD", "");
 
-//4.Заданы вопросы пользователю :
+//4.Заданы вопросы пользователю  :
 let mandatoryExpense = prompt("Введите обязательную статью расходов в этом месяце ", "Еда");
 let costOfExpence = prompt("Во сколько обойдется? ", "10000");
 
 //3.Создать объект appData
-пусть AppData = {
-    Бюджет: деньги, 
-    Данныео времени: время,
-    расходы: {Обязательныерасходы: расходы на расходы},
-    Дополнительныерасходы: ноль, 
-    доход: [],
-    экономия: ложная,
+let appData = {
+    Budget: money, 
+    timeData: time,
+    expenses: {mandatoryExpense: costOfExpence},
+    optionalExpenses: null, 
+    income: [],
+    savings: false,
 };
 
 //5. Вывод бюджета на 1 день
-пусть бюджетный день= деньги / 30;
+let budgetOnDay = money / 30;
 alert("Ваш бюджет на 1 день: " + budgetOnDay);
 
 /*Вопросы:
